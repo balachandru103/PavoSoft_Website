@@ -1,0 +1,47 @@
+/* ./src/index.css */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+	--color-primary: #087b80;
+	--color-primary-hover: #06666b;
+	--color-primary-soft: #e5f3f1;
+	--color-secondary: #17575d;
+	--color-secondary-soft: #edf6f4;
+	--color-accent: #c18b3d;
+	--color-background: #f7faf9;
+	--color-surface: #ffffff;
+	--color-surface-muted: #eef4f2;
+	--color-text: #173538;
+	--color-muted: #627779;
+	--color-border: #d9e5e2;
+	--color-success: #24744b;
+	--color-success-soft: #e6f2e9;
+	--color-warning: #a66c12;
+	--color-error: #b33b3b;
+	--color-error-hover: #922f2f;
+	--color-info: #26738a;
+	--color-focus: #168e91;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--color-background);
+	color: var(--color-text);
+}
+
+button,
+input,
+textarea,
+select {
+	accent-color: var(--color-primary);
+}
+
+:focus-visible {
+	outline: 3px solid var(--color-focus);
+	outline-offset: 2px;
+}

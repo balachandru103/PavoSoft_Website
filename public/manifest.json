@@ -1,0 +1,15 @@
+{
+  "short_name": "PavoSoft",
+  "name": "PavoSoft | Technology Solutions",
+  "icons": [
+    {
+      "src": "pavosoft-logo.jpeg",
+      "sizes": "any",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#087b80",
+  "background_color": "#f7faf9"
+}
