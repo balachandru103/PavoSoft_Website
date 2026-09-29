@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "techvision-d1e68"
-  }
+    "default": "pavosoftwebsite",
+    "staging": "pavosoftwebsite"
+  },
+  "targets": {},
+  "etags": {}
 }
