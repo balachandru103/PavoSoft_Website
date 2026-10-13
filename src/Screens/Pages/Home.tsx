@@ -1,263 +1,392 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "../../utils/Constant";
-import { Button } from "../../Components/CustomButton";
 import {
-    Code2, Smartphone, Cloud, Database,
-    ArrowRight, CheckCircle2
+  Code,
+  Cpu,
+  Cloud,
+  ShieldCheck,
+  ArrowRight,
+  CheckCircle2,
+  Play,
+  Factory,
+  HeartPulse,
+  ShoppingCart,
+  Landmark,
+  GraduationCap,
+  Truck,
+  Sparkles,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { PavoLogo } from "../../Components/PavoLogo";
 
 const services = [
-    {
-        icon: Code2,
-        title: "Custom Software Development",
-        description: "Scalable, secure software engineered around your business needs",
-        gradient: "from-primary-600 to-secondary-600"
-    },
-    {
-        icon: Smartphone,
-        title: "Mobile App Development",
-        description: "Native and cross-platform mobile apps for iOS and Android",
-        gradient: "from-primary-600 to-secondary-600"
-    },
-    {
-        icon: Database,
-        title: "SAP Solutions",
-        description: "Enterprise resource planning and SAP implementation services",
-        gradient: "from-accent to-secondary-600"
-    },
-    {
-        icon: Cloud,
-        title: "Cloud Services",
-        description: "Scalable cloud infrastructure and migration solutions",
-        gradient: "from-secondary-500 to-secondary-600"
-    }
+  {
+    icon: Code,
+    title: "Software Development",
+    description: "Custom web, mobile and enterprise solutions.",
+    iconColor: "text-blue-600 bg-blue-50",
+    url: "/services",
+  },
+  {
+    icon: Cpu,
+    title: "AI & Automation",
+    description: "Intelligent solutions to work smarter and faster.",
+    iconColor: "text-indigo-600 bg-indigo-50",
+    url: "/services",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Solutions",
+    description: "Modernize and scale your business on cloud.",
+    iconColor: "text-cyan-600 bg-cyan-50",
+    url: "/services",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Cybersecurity",
+    description: "Protect your business with advanced security solutions.",
+    iconColor: "text-emerald-600 bg-emerald-50",
+    url: "/services",
+  },
+];
+
+const industries = [
+  { name: "Manufacturing", icon: Factory },
+  { name: "Healthcare", icon: HeartPulse },
+  { name: "Retail & E-commerce", icon: ShoppingCart },
+  { name: "Finance", icon: Landmark },
+  { name: "Education", icon: GraduationCap },
+  { name: "Logistics", icon: Truck },
+];
+
+const clientLogos = [
+  { name: "TATA", logoText: "TATA" },
+  { name: "Infosys", logoText: "Infosys" },
+  { name: "HCL", logoText: "HCL" },
+  { name: "wipro", logoText: "wipro" },
+  { name: "IBM", logoText: "IBM" },
+  { name: "Microsoft", logoText: "Microsoft" },
 ];
 
 export default function Home() {
-    return (
-        <div className="overflow-hidden">
-            {/* Hero Section */}
-            <section className="relative min-h-[calc(100vh-5rem)] flex items-center bg-gradient-to-br from-slate-950 via-slate-800 to-secondary-900">
-                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            <div className="inline-block mb-6">
-                                <span className="px-4 py-2 bg-primary-950 border border-primary-700 rounded-full text-primary-100 text-sm font-medium">
-                                    Intelligent Transformation Partner
-                                </span>
-                            </div>
+  return (
+    <div className="space-y-16 md:space-y-24 pb-16">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-8 md:pt-14 pb-12 bg-gradient-to-b from-blue-50/60 via-slate-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            {/* Left Content Column */}
+            <div className="lg:col-span-7 space-y-6">
+              {/* Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-[#2563EB] text-xs font-semibold tracking-wide uppercase">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>TECHNOLOGY • PEOPLE • REAL BUSINESS IMPACT</span>
+              </div>
 
-                            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                                Transform Your Business with Technology
-                            </h1>
+              {/* Main Headline */}
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0F172A] tracking-tight leading-[1.12]">
+                Technology that moves your business{" "}
+                <span className="text-[#2563EB]">forward.</span>
+              </h1>
 
-                            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                                We deliver cutting-edge software solutions, mobile applications, SAP implementations, and cloud services to drive your digital transformation.
-                            </p>
+              {/* Subtitle */}
+              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+                We build intelligent software, AI solutions and cloud platforms
+                that help businesses operate faster, smarter and more
+                efficiently.
+              </p>
 
-                            <div className="flex flex-wrap gap-4">
-                                <Link to={createPageUrl("Contact")}>
-                                    <Button size="lg" className="
-      flex items-center justify-center 
-    bg-gradient-to-r from-primary-600 to-secondary-600
-    hover:from-primary-700 hover:to-secondary-700
-    text-white shadow-lg
-      text-lg px-8
-    ">
-                                        Start Your Project
-                                        <ArrowRight className="ml-2 w-5 h-5" />
-                                    </Button>
-                                </Link>
-                                <Link to={createPageUrl("Services")}>
-                                    <Button size="lg" className="border-white/20 text-white hover:bg-white/10 text-lg px-8">
-                                        Explore Services
-                                    </Button>
-                                </Link>
-                            </div>
-                        </motion.div>
+              {/* Action Buttons */}
+              <div className="flex flex-wrap items-center gap-4 pt-2">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium text-base px-6 py-3.5 rounded-lg shadow-sm hover:shadow transition-all duration-200"
+                >
+                  <span>Get Started</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 font-medium text-base px-6 py-3.5 rounded-lg border border-slate-200 shadow-xs hover:border-slate-300 transition-all duration-200"
+                >
+                  <span>Explore Services</span>
+                </Link>
+              </div>
+            </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="hidden lg:block"
-                        >
-                            <div className="relative">
-                                <img
-                                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop"
-                                    alt="Team collaboration"
-                                    className="relative rounded-3xl shadow-2xl"
-                                />
-                            </div>
-                        </motion.div>
+            {/* Right Hero Image / Floating Tech Collage */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative mx-auto max-w-md lg:max-w-none">
+                {/* Background decorative glow */}
+                <div className="absolute -top-6 -right-6 w-72 h-72 bg-blue-400/15 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-6 -left-6 w-72 h-72 bg-cyan-400/15 rounded-full blur-3xl pointer-events-none" />
+
+                {/* Main Hero Image Container */}
+                <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/60 bg-white">
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
+                    alt="PavoSoft Tech Team"
+                    className="w-full h-80 sm:h-96 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-900/10 to-transparent" />
+
+                  {/* Floating Brand Badge (Top Right) */}
+                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-3.5 py-2 rounded-xl shadow-lg border border-white/80 flex items-center gap-2">
+                    <PavoLogo size="sm" />
+                  </div>
+
+                  {/* Floating Feature Card (Bottom) */}
+                  <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl shadow-lg border border-white/80 flex items-center justify-between">
+                    <div>
+                      <p className="text-xs text-slate-500 font-medium">Core Vision</p>
+                      <p className="text-sm font-bold text-[#0F172A]">
+                        Innovate • Automate • Scale
+                      </p>
                     </div>
-                </div>
-            </section>
-
-            <section className="py-16 bg-surface">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <p className="text-sm font-semibold uppercase tracking-wide text-primary-700 mb-3">
-                        AI at the Core of Your Digital Journey
-                    </p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-5">
-                        Technology that moves your business forward
-                    </h2>
-                    <p className="text-lg text-slate-700 leading-relaxed">
-                        We partner with you to deliver AI-driven software, mobile, SAP, and cloud solutions tailored to your business goals.
-                    </p>
-                    <p className="text-lg text-slate-600 leading-relaxed mt-3">
-                        By merging deep technical expertise with data-driven intelligence, we enable smarter decisions, seamless integration, and continuous growth in a rapidly evolving market.
-                    </p>
-                </div>
-            </section>
-
-            {/* Services Section */}
-            <section className="py-20 bg-slate-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-                            Our Core Services — End-to-End IT Solutions for Business Success.
-                        </h2>
-                        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                            Your Digital Advantage Starts Here.
-                        </p>
+                    <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-[#2563EB]">
+                      <Sparkles className="w-4 h-4" />
                     </div>
-
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {services.map((service, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                className="group"
-                            >
-                                <div className="bg-surface rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 h-full border border-slate-200 hover:border-transparent hover:-translate-y-2">
-                                    <div className={`w-14 h-14 bg-gradient-to-br ${service.gradient} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                                        <service.icon className="w-7 h-7 text-white" />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                                    <p className="text-slate-600 leading-relaxed">{service.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-
-                    <div className="flex justify-center mt-12">
-                        <Link to={createPageUrl("Services")}>
-                            <Button
-                                size="lg"
-                                variant="outline"
-                                className="flex items-center justify-center border-2 border-primary-600 text-primary-700 hover:bg-primary-600 hover:text-white"
-                            >
-                                View All Services
-                                <ArrowRight className="ml-2 w-5 h-5" />
-                            </Button>
-                        </Link>
-                    </div>
-
+                  </div>
                 </div>
-            </section>
+              </div>
+            </div>
+          </div>
 
-            {/* Why Choose Us */}
-            <section className="py-20 bg-surface">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid lg:grid-cols-2 gap-12 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop"
-                                alt="Technology dashboard"
-                                className="rounded-2xl shadow-2xl"
-                            />
-                        </motion.div>
-
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <p className="text-sm font-semibold uppercase tracking-wide text-primary-700 mb-3">
-                                Your Goals, Our Expertise.
-                            </p>
-                            <h2 className="text-4xl font-bold text-slate-900 mb-6">
-                                Why Choose PavoSoft?
-                            </h2>
-                            <p className="text-lg text-slate-600 mb-8">
-                                At PavoSoft, we don’t just build software — we deliver transformative solutions that power growth, efficiency, and innovation.
-                            </p>
-
-                            <div className="space-y-4">
-                                {[
-                                    "Excellence delivering cutting-edge, reliable solutions trusted",
-                                    "Advanced technology leveraging modern tools, frameworks, and AI solutions.",
-                                    "Rapid, agile solutions designed to adapt as your business grows.",
-                                    "Reliable round-the-clock support to keep your business running.",
-                                    "Precision-driven project delivery, always on time.",
-                                    "Maximizing value with cost-effective, high-quality solutions."
-                                ].map((item, index) => (
-                                    <div key={index} className="flex items-start gap-3">
-                                        <div className="flex-shrink-0 w-6 h-6 bg-success-soft rounded-full flex items-center justify-center mt-1">
-                                            <CheckCircle2 className="w-4 h-4 text-success" />
-                                        </div>
-                                        <p className="text-slate-700 text-lg">{item}</p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <div className="mt-8">
-                                <Link to={createPageUrl("About")}>
-                                    <Button size="lg" className="border-white/20 text-white hover:bg-white/10 text-lg px-8">
-                                        Learn More About Us
-                                    </Button>
-                                </Link>
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="py-20 bg-gradient-to-r from-primary-700 to-secondary-600">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                            Let's Build Something Great Together
-                        </h2>
-                        <p className="text-xl text-secondary-50 mb-8">
-                            Let's build your future. Whether you need a custom software solution, mobile app, or enterprise system, our team is ready to help. Reach out to us and let's start the conversation.
-                        </p>
-                        <div className="text-center mt-12">
-                            <Link to={createPageUrl("Contact")} className="inline-block">
-                                <Button
-                                    size="lg"
-                                    className="flex items-center justify-center border-white/20 text-white hover:bg-white/10 text-lg px-8"
-                                >
-                                    Get in Touch
-                                    <ArrowRight className="ml-2 w-5 h-5" />
-                                </Button>
-                            </Link>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+          {/* Metric Stats Bar */}
+          <div className="mt-14 pt-8 border-t border-slate-200/80">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div className="p-4 rounded-xl hover:bg-white hover:shadow-xs transition-colors">
+                <p className="text-3xl sm:text-4xl font-extrabold text-[#2563EB]">
+                  100+
+                </p>
+                <p className="text-sm font-medium text-slate-600 mt-1">
+                  Projects Delivered
+                </p>
+              </div>
+              <div className="p-4 rounded-xl hover:bg-white hover:shadow-xs transition-colors">
+                <p className="text-3xl sm:text-4xl font-extrabold text-[#2563EB]">
+                  50+
+                </p>
+                <p className="text-sm font-medium text-slate-600 mt-1">
+                  Happy Clients
+                </p>
+              </div>
+              <div className="p-4 rounded-xl hover:bg-white hover:shadow-xs transition-colors">
+                <p className="text-3xl sm:text-4xl font-extrabold text-[#2563EB]">
+                  5+
+                </p>
+                <p className="text-sm font-medium text-slate-600 mt-1">
+                  Years of Experience
+                </p>
+              </div>
+              <div className="p-4 rounded-xl hover:bg-white hover:shadow-xs transition-colors">
+                <p className="text-3xl sm:text-4xl font-extrabold text-[#2563EB]">
+                  98%
+                </p>
+                <p className="text-sm font-medium text-slate-600 mt-1">
+                  Client Satisfaction
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+      </section>
+
+      {/* Section 2: End-to-End Technology Solutions */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <p className="text-xs font-bold text-[#2563EB] tracking-wider uppercase mb-2">
+            OUR SERVICES
+          </p>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            End-to-End Technology Solutions
+          </h2>
+          <p className="text-slate-600 mt-3 text-base leading-relaxed">
+            From idea to execution, we help businesses build, scale and transform
+            with the power of technology.
+          </p>
+        </div>
+
+        {/* 4 Service Cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.title}
+                className="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-200 flex flex-col justify-between group"
+              >
+                <div>
+                  <div
+                    className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 ${item.iconColor}`}
+                  >
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#2563EB] transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-6">
+                    {item.description}
+                  </p>
+                </div>
+
+                <Link
+                  to={item.url}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2563EB] hover:text-blue-800 transition-colors pt-2 border-t border-slate-100"
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Section 3: Why PavoSoft */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            {/* Left Image with play overlay */}
+            <div className="lg:col-span-5 relative">
+              <div className="relative rounded-2xl overflow-hidden shadow-lg border border-slate-200/80 group">
+                <img
+                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
+                  alt="Team Innovation at PavoSoft"
+                  className="w-full h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/30 transition-colors" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white text-[#2563EB] shadow-xl flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                    <Play className="w-6 h-6 ml-1 fill-[#2563EB]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <p className="text-xs font-bold text-[#2563EB] tracking-wider uppercase">
+                WHY PAVOSOFT
+              </p>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+                Your Growth is Our Mission
+              </h2>
+              <p className="text-slate-600 text-base leading-relaxed">
+                We combine deep technical expertise with a business-first
+                approach to deliver solutions that create real value.
+              </p>
+
+              <div className="space-y-3.5 pt-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-[#10B981] flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-5 h-5 fill-emerald-100" />
+                  </div>
+                  <span className="text-sm font-medium text-slate-800">
+                    Client-focused approach
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-[#10B981] flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-5 h-5 fill-emerald-100" />
+                  </div>
+                  <span className="text-sm font-medium text-slate-800">
+                    Agile and transparent delivery
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-[#10B981] flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 className="w-5 h-5 fill-emerald-100" />
+                  </div>
+                  <span className="text-sm font-medium text-slate-800">
+                    Long-term partnership
+                  </span>
+                </div>
+              </div>
+
+              <div className="pt-4">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-2 bg-[#2563EB] hover:bg-blue-700 text-white font-medium text-sm px-6 py-3 rounded-lg shadow-sm transition-all"
+                >
+                  <span>Learn More About Us</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Industries We Serve */}
+      <section id="industries" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            Industries We Serve
+          </h2>
+          <p className="text-slate-600 mt-2 text-base">
+            Delivering tailored solutions across diverse industries.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {industries.map((ind) => {
+            const Icon = ind.icon;
+            return (
+              <div
+                key={ind.name}
+                className="bg-white rounded-xl p-5 border border-slate-200 text-center hover:border-blue-400 hover:shadow-sm transition-all duration-200 group flex flex-col items-center justify-center gap-3"
+              >
+                <div className="w-12 h-12 rounded-lg bg-blue-50 text-[#2563EB] flex items-center justify-center group-hover:bg-[#2563EB] group-hover:text-white transition-colors">
+                  <Icon className="w-6 h-6" />
+                </div>
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 leading-snug">
+                  {ind.name}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Section 5: CTA Banner */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-[#2563EB] via-blue-600 to-[#1D4ED8] rounded-2xl p-8 sm:p-10 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="space-y-1.5 text-center md:text-left">
+            <h3 className="text-2xl sm:text-3xl font-extrabold">
+              Ready to Build What's Next?
+            </h3>
+            <p className="text-blue-100 text-sm sm:text-base">
+              Let's turn your ideas into powerful digital solutions.
+            </p>
+          </div>
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#2563EB] font-semibold text-sm px-6 py-3 rounded-lg shadow-sm transition-all duration-200 flex-shrink-0"
+          >
+            <span>Get Started</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </section>
+
+      {/* Section 6: Trusted by Growing Businesses */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8">
+          <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
+            Trusted by Growing Businesses
+          </p>
+        </div>
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+          {clientLogos.map((client) => (
+            <div
+              key={client.name}
+              className="font-bold text-xl sm:text-2xl text-slate-700 tracking-wider hover:text-[#2563EB] transition-colors"
+            >
+              {client.logoText}
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 }

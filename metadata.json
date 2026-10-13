@@ -1,0 +1,8 @@
+{
+  "name": "PavoSoft | Technology Solutions",
+  "description": "PavoSoft delivers custom software, mobile apps, SAP implementations, cloud services, and AI-driven technology solutions.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
