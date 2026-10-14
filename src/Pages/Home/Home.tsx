@@ -78,7 +78,7 @@ export default function Home() {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
               <div className="text-xs sm:text-sm font-bold tracking-wider text-[#0052FF] uppercase">
-                TECHNOLOGY â€¢ PEOPLE â€¢ REAL BUSINESS IMPACT
+                TECHNOLOGY  PEOPLE  REAL BUSINESS IMPACT
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#0F172A] leading-[1.12]">

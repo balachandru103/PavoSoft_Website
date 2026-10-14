@@ -1,4 +1,5 @@
 import React from "react";
+import iconImg from "../assets/logo_icon.jpg";
 
 export interface PavoLogoIconProps {
   className?: string;
@@ -7,47 +8,13 @@ export interface PavoLogoIconProps {
 export const PavoLogoIcon: React.FC<PavoLogoIconProps> = ({
   className = "w-8 h-8",
 }) => (
-  <svg
-    className={className}
-    viewBox="0 0 32 32"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
+  <img
+    src={iconImg}
+    alt=""
     aria-hidden="true"
-  >
-    <path
-      d="M6 22C6 13 11 5 19 3C23 8 23 16 17 21C13 25 9 24 6 22Z"
-      fill="url(#pavoBlueGradient)"
-    />
-    <path
-      d="M13 16C13 11 16 7 21 5C23 9 23 14 19 17C16 20 14 18 13 16Z"
-      fill="url(#pavoCyanGradient)"
-    />
-    <circle cx="18.5" cy="12" r="2.2" fill="#FFFFFF" />
-    <defs>
-      <linearGradient
-        id="pavoBlueGradient"
-        x1="6"
-        y1="3"
-        x2="22"
-        y2="24"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#00C2FF" />
-        <stop offset="1" stopColor="#0052FF" />
-      </linearGradient>
-      <linearGradient
-        id="pavoCyanGradient"
-        x1="13"
-        y1="5"
-        x2="23"
-        y2="19"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#00F0FF" />
-        <stop offset="1" stopColor="#0072FF" />
-      </linearGradient>
-    </defs>
-  </svg>
+    draggable={false}
+    className={`object-contain ${className}`}
+  />
 );
 
 interface PavoLogoProps {
@@ -65,7 +32,7 @@ export const PavoLogo: React.FC<PavoLogoProps> = ({
   size = "md",
   iconClassName = "",
   textClassName = "",
-  fontWeight = "bold",
+  fontWeight = "extrabold",
 }) => {
   const iconSizes = {
     sm: "w-7 h-7",
@@ -77,7 +44,7 @@ export const PavoLogo: React.FC<PavoLogoProps> = ({
     md: "text-2xl",
     lg: "text-3xl",
   };
-  const textColor = variant === "light" ? "text-white" : "text-[#0F172A]";
+  const textColor = variant === "light" ? "text-white" : "text-[#020B2D]";
   const textWeight = fontWeight === "extrabold" ? "font-extrabold" : "font-bold";
 
   return (
