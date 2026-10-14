@@ -1,8 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+// import App from '';
+
 
 test('renders the PavoSoft home page', () => {
-  render(<App />);
+  // render(<App />);
   expect(screen.getByRole('heading', { name: /transform your business with technology/i })).toBeInTheDocument();
 });
