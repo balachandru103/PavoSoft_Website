@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Check, ChevronDown, ChevronUp, Clock, Mail, MapPin, Phone } from 'lucide-react';
 
+const CONTACT_HERO_IMG = process.env.PUBLIC_URL 
+  ? `${process.env.PUBLIC_URL}/assets/aistudio/Contact_New_f2327d87.jpg` 
+  : '/assets/aistudio/Contact_New_f2327d87.jpg';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -31,34 +34,37 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans pb-20">
-      {/* 1. Hero Section (Contact.png) */}
+      {/* 1. Hero Section (Contact.png / WhatsApp images) */}
       <section className="relative overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#0052FF]">
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#007BFF]">
                 CONTACT US
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#0F172A] leading-[1.15]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.15]">
                 Let's Start a <br />
-                <span className="text-[#0052FF]">Conversation</span>
+                <span className="text-[#007BFF]">Conversation</span>
               </h1>
               <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
                 Have a project in mind or want to know more about our services? We're here to help.
               </p>
             </div>
 
-            {/* Right Graphic: Customer Support Agent with Headset and Response Badge */}
+            {/* Right Graphic: Customer Support Agent from WhatsApp images */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 aspect-[4/3] sm:aspect-[1.15] bg-slate-900">
                   <img 
-                    src={require('../../assets/contact.jpg')}
+                    src={CONTACT_HERO_IMG}
                     alt="Customer Support Representative" 
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = require('../../assets/contact.jpg');
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
 
                   {/* Floating Pill Badge: We usually respond within 24 hours */}
                   <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full shadow-xl border border-white/90 flex items-center gap-2">
@@ -78,7 +84,7 @@ export default function Contact() {
           
           {/* Left: Send Us a Message Form */}
           <div className="lg:col-span-7 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-xs">
-            <h2 className="text-2xl font-extrabold text-[#0F172A] mb-1">Send Us a Message</h2>
+            <h2 className="text-2xl font-extrabold text-[#001738] mb-1">Send Us a Message</h2>
             <p className="text-slate-500 text-xs sm:text-sm mb-8">Fill out the form and we'll get back to you soon.</p>
 
             {submitted ? (
@@ -106,7 +112,7 @@ export default function Contact() {
                     placeholder="Your name"
                     value={formData.fullName}
                     onChange={(e) => setFormData({...formData, fullName: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#0052FF] text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#007BFF] text-sm bg-white"
                   />
                 </div>
                 <div>
@@ -117,7 +123,7 @@ export default function Contact() {
                     placeholder="yourname@company.com"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#0052FF] text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#007BFF] text-sm bg-white"
                   />
                 </div>
                 <div>
@@ -127,7 +133,7 @@ export default function Contact() {
                     placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#0052FF] text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#007BFF] text-sm bg-white"
                   />
                 </div>
                 <div>
@@ -137,7 +143,7 @@ export default function Contact() {
                     placeholder="Your company name"
                     value={formData.company}
                     onChange={(e) => setFormData({...formData, company: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#0052FF] text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#007BFF] text-sm bg-white"
                   />
                 </div>
                 <div>
@@ -148,14 +154,14 @@ export default function Contact() {
                     placeholder="Tell us about your project..."
                     value={formData.requirements}
                     onChange={(e) => setFormData({...formData, requirements: e.target.value})}
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#0052FF] text-sm bg-white"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:border-[#007BFF] text-sm bg-white"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-[#0052FF] hover:bg-blue-700 text-white font-medium py-3 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer text-sm"
+                  className="w-full bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold py-3 rounded-lg shadow-sm shadow-blue-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer text-sm"
                 >
-                  Send Message 
+                  Send Message →
                 </button>
               </form>
             )}
@@ -164,44 +170,44 @@ export default function Contact() {
           {/* Right: Our Office Information Card */}
           <div className="lg:col-span-5 bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/90 shadow-xs space-y-7">
             <div>
-              <h2 className="text-2xl font-extrabold text-[#0F172A] mb-1">Our Office</h2>
+              <h2 className="text-2xl font-extrabold text-[#001738] mb-1">Our Office</h2>
               <p className="text-slate-500 text-xs sm:text-sm">Visit us or reach out through any of the channels below.</p>
             </div>
             
             <ul className="space-y-5 text-sm">
               <li className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#0052FF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#007BFF] flex items-center justify-center shrink-0 mt-0.5">
                   <MapPin className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-extrabold text-[#0F172A] block text-sm">Address</span>
+                  <span className="font-extrabold text-[#001738] block text-sm">Address</span>
                   <span className="text-slate-600 text-xs sm:text-sm">Coimbatore, Tamil Nadu<br />India</span>
                 </div>
               </li>
               <li className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#0052FF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#007BFF] flex items-center justify-center shrink-0 mt-0.5">
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-extrabold text-[#0F172A] block text-sm">Email</span>
-                  <a href="mailto:info@pavosoft.com" className="text-slate-600 text-xs sm:text-sm hover:text-[#0052FF]">info@pavosoft.com</a>
+                  <span className="font-extrabold text-[#001738] block text-sm">Email</span>
+                  <a href="mailto:info@pavosoft.com" className="text-slate-600 text-xs sm:text-sm hover:text-[#007BFF]">info@pavosoft.com</a>
                 </div>
               </li>
               <li className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#0052FF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#007BFF] flex items-center justify-center shrink-0 mt-0.5">
                   <Phone className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-extrabold text-[#0F172A] block text-sm">Phone</span>
-                  <a href="tel:+919876543210" className="text-slate-600 text-xs sm:text-sm hover:text-[#0052FF]">+91 98765 43210</a>
+                  <span className="font-extrabold text-[#001738] block text-sm">Phone</span>
+                  <a href="tel:+919876543210" className="text-slate-600 text-xs sm:text-sm hover:text-[#007BFF]">+91 98765 43210</a>
                 </div>
               </li>
               <li className="flex items-start gap-3.5">
-                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#0052FF] flex items-center justify-center shrink-0 mt-0.5">
+                <div className="w-8 h-8 rounded-full bg-blue-50 text-[#007BFF] flex items-center justify-center shrink-0 mt-0.5">
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-extrabold text-[#0F172A] block text-sm">Business Hours</span>
+                  <span className="font-extrabold text-[#001738] block text-sm">Business Hours</span>
                   <span className="text-slate-600 text-xs sm:text-sm">Mon - Fri: 9:00 AM - 6:00 PM<br />Sat: 9:00 AM - 1:00 PM</span>
                 </div>
               </li>
@@ -218,7 +224,7 @@ export default function Contact() {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-lg border border-slate-200 flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-red-500 fill-red-500" />
                 <div className="text-left">
-                  <div className="text-xs font-extrabold text-[#0F172A]">Coimbatore</div>
+                  <div className="text-xs font-extrabold text-[#001738]">Coimbatore</div>
                   <div className="text-[10px] text-slate-500 font-medium">Tamil Nadu, India</div>
                 </div>
               </div>
@@ -229,7 +235,7 @@ export default function Contact() {
         {/* 3. Frequently Asked Questions (Contact.png) */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-10 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">Frequently Asked Questions</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001738]">Frequently Asked Questions</h2>
             <p className="text-slate-500 text-xs sm:text-sm">Find quick answers to common questions.</p>
           </div>
 
@@ -239,10 +245,10 @@ export default function Contact() {
                 <button
                   type="button"
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full p-5 text-left font-bold text-sm sm:text-base text-[#0F172A] flex items-center justify-between hover:bg-slate-50/60 transition-colors cursor-pointer"
+                  className="w-full p-5 text-left font-bold text-sm sm:text-base text-[#001738] flex items-center justify-between hover:bg-slate-50/60 transition-colors cursor-pointer"
                 >
                   <span>{faq.q}</span>
-                  {openFaq === idx ? <ChevronUp className="w-5 h-5 text-[#0052FF] shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />}
+                  {openFaq === idx ? <ChevronUp className="w-5 h-5 text-[#007BFF] shrink-0" /> : <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />}
                 </button>
                 {openFaq === idx && (
                   <div className="px-5 pb-5 pt-1 text-slate-600 text-xs sm:text-sm border-t border-slate-100 leading-relaxed">

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-// import { PavoLogo } from './PavoLogo';
+
+const LOGO_SRC = process.env.PUBLIC_URL 
+  ? `${process.env.PUBLIC_URL}/assets/aistudio/Clean_logo___4_Nov_2026__12.17_pm_6411a6bf.png`
+  : '/assets/aistudio/Clean_logo___4_Nov_2026__12.17_pm_6411a6bf.png';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,16 +20,24 @@ export default function Header() {
   ];
 
   const isCurrentActive = (path: string, name: string) => {
-    if (path === '/') return location.pathname === '/';
-    if (path === '/#industries' || name === 'Solutions') return false;
-    return location.pathname.toLowerCase().startsWith(path.toLowerCase());
+    if (path === '/' && location.pathname === '/') return true;
+    if (name === 'Solutions') return false;
+    if (path === '/#industries') return location.hash === '#industries';
+    if (path !== '/' && location.pathname.startsWith(path)) return true;
+    return false;
   };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 group select-none">
-          {/* <PavoLogo size="md" className="!gap-2" fontWeight="extrabold" /> */}
+        {/* Brand Logo matching WhatsApp mockups */}
+        <Link to="/" className="inline-flex items-center group select-none transition-transform hover:scale-[1.01]">
+          <img 
+            src={LOGO_SRC} 
+            alt="PavoSoft - Technology for a Brighter Tomorrow" 
+            className="h-9 sm:h-10 w-auto object-contain max-h-12"
+            loading="eager"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -37,26 +48,27 @@ export default function Header() {
               <div key={link.name} className="relative py-1">
                 <Link
                   to={link.path}
-                  className={`text-sm font-medium transition-colors hover:text-[#0052FF] ${
-                    active ? 'text-[#0052FF] font-semibold' : 'text-slate-600'
+                  className={`text-sm font-semibold transition-colors hover:text-[#007BFF] ${
+                    active ? 'text-[#007BFF]' : 'text-slate-600'
                   }`}
                 >
                   {link.name}
                 </Link>
                 {active && (
-                  <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-[#0052FF] rounded-full" />
+                  <span className="absolute -bottom-2 left-0 right-0 h-[2.5px] bg-[#007BFF] rounded-full" />
                 )}
               </div>
             );
           })}
         </nav>
 
+        {/* Action Button */}
         <div className="hidden md:flex items-center">
           <Link
             to="/contact"
-            className="bg-[#0052FF] hover:bg-blue-700 text-white font-medium px-5 py-2.5 rounded-lg shadow-sm transition-all hover:shadow text-sm flex items-center gap-1.5"
+            className="bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm shadow-blue-500/20 transition-all hover:shadow text-sm flex items-center gap-1.5"
           >
-            Get Started
+            Get Started →
           </Link>
         </div>
 
@@ -78,8 +90,8 @@ export default function Header() {
               key={link.name}
               to={link.path}
               onClick={() => setMobileMenuOpen(false)}
-              className={`text-base font-medium py-2 px-3 rounded-lg transition-colors ${
-                isCurrentActive(link.path, link.name) ? 'bg-blue-50 text-[#0052FF] font-semibold' : 'text-slate-700 hover:bg-slate-50'
+              className={`text-base font-semibold py-2 px-3 rounded-lg transition-colors ${
+                isCurrentActive(link.path, link.name) ? 'bg-blue-50 text-[#007BFF]' : 'text-slate-700 hover:bg-slate-50'
               }`}
             >
               {link.name}
@@ -88,9 +100,9 @@ export default function Header() {
           <Link
             to="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className="mt-2 text-center bg-[#0052FF] hover:bg-blue-700 text-white font-medium py-3 rounded-lg shadow-sm"
+            className="mt-2 text-center bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold py-3 rounded-lg shadow-sm"
           >
-            Get Started
+            Get Started →
           </Link>
         </div>
       )}

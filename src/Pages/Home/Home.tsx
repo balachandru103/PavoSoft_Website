@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Cloud, Shield } from 'lucide-react';
-import { PavoLogo } from '../../Components/PavoLogo';
 import { CircuitBrainIcon } from '../../Components/Icons';
 
+const HOME_HERO_IMG = process.env.PUBLIC_URL 
+  ? `${process.env.PUBLIC_URL}/assets/aistudio/HomeNew_ca6338f7.jpg` 
+  : '/assets/aistudio/HomeNew_ca6338f7.jpg';
 
 const FactoryIcon = () => (
   <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -54,7 +56,6 @@ const LogisticsIcon = () => (
   </svg>
 );
 
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
@@ -77,14 +78,14 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-[#0052FF] uppercase">
-                TECHNOLOGY  PEOPLE  REAL BUSINESS IMPACT
+              <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+                TECHNOLOGY • PEOPLE • REAL BUSINESS IMPACT
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#0F172A] leading-[1.12]">
+              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
                 Technology <br />
                 that moves your <br />
-                <span className="text-[#0052FF]">business forward.</span>
+                <span className="text-[#007BFF]">business forward.</span>
               </h1>
 
               <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
@@ -94,43 +95,37 @@ export default function Home() {
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   to="/contact"
-                  className="bg-[#0052FF] hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg shadow-sm transition-all text-sm flex items-center gap-2"
+                  className="bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-6 py-3 rounded-lg shadow-sm shadow-blue-500/20 transition-all text-sm flex items-center gap-2"
                 >
-                  Get Started
+                  Get Started →
                 </Link>
                 <Link
                   to="/services"
-                  className="bg-white hover:bg-slate-50 text-slate-800 font-medium px-6 py-3 rounded-lg border border-slate-200 transition-all text-sm shadow-xs"
+                  className="bg-white hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3 rounded-lg border border-slate-200 transition-all text-sm shadow-xs"
                 >
                   Explore Services
                 </Link>
               </div>
             </div>
 
-            {/* Right Graphic */}
+            {/* Right Graphic: HomeNew_ca6338f7.jpg from WhatsApp image set */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-lg">
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-slate-100 aspect-[4/3] sm:aspect-[1.15]">
                   <img 
-                    src={require('../../assets/Home.jpg')} 
+                    src={HOME_HERO_IMG}
                     alt="PavoSoft Corporate Building" 
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback to bundled asset if path fails
+                      (e.target as HTMLImageElement).src = require('../../assets/Home.jpg');
+                    }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/20 via-transparent to-blue-500/10 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 via-transparent to-blue-500/10 pointer-events-none" />
 
-                  {/* <div className="absolute top-[20%] right-[10%] flex items-center gap-1 rounded-md border border-white/40 bg-slate-950/55 px-2 py-1 shadow-lg backdrop-blur-sm sm:gap-1.5 sm:px-3 sm:py-1.5">
-                    <PavoLogo
-                      size="sm"
-                      variant="light"
-                      fontWeight="extrabold"
-                      className="!gap-1 sm:!gap-1.5"
-                      iconClassName="!h-5 !w-5 sm:!h-6 sm:!w-6"
-                      textClassName="!text-sm sm:!text-base"
-                    />
-                  </div> */}
-
+                  {/* Floating Badge: Innovate Automate Scale */}
                   <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#0052FF] to-[#00A3FF] flex items-center justify-center text-white shadow-md shadow-blue-500/30">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white shadow-md shadow-blue-500/30">
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 2L3 9v11a2 2 0 002 2h14a2 2 0 002-2V9l-9-7z" />
                         <path d="M9 22V12h6v10" />
@@ -139,7 +134,7 @@ export default function Home() {
                     <div className="text-left font-bold text-slate-900 leading-tight">
                       <div className="text-xs font-extrabold tracking-tight">Innovate</div>
                       <div className="text-xs font-extrabold tracking-tight">Automate</div>
-                      <div className="text-xs font-extrabold tracking-tight text-[#0052FF]">Scale</div>
+                      <div className="text-xs font-extrabold tracking-tight text-[#007BFF]">Scale</div>
                     </div>
                   </div>
                 </div>
@@ -154,19 +149,19 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 text-center">
             <div className="py-2">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0052FF] tracking-tight">100+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#007BFF] tracking-tight">100+</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Projects Delivered</div>
             </div>
             <div className="py-2">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0052FF] tracking-tight">50+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#007BFF] tracking-tight">50+</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Happy Clients</div>
             </div>
             <div className="py-2">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0052FF] tracking-tight">5+</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#007BFF] tracking-tight">5+</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Years of Experience</div>
             </div>
             <div className="py-2">
-              <div className="text-3xl sm:text-4xl font-extrabold text-[#0052FF] tracking-tight">98%</div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-[#007BFF] tracking-tight">98%</div>
               <div className="text-xs sm:text-sm font-medium text-slate-600 mt-1">Client Satisfaction</div>
             </div>
           </div>
@@ -177,8 +172,8 @@ export default function Home() {
       <section className="py-20 bg-slate-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0052FF]">OUR SERVICES</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#007BFF]">OUR SERVICES</span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001738] tracking-tight">
               End-to-End Technology Solutions
             </h2>
             <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
@@ -190,16 +185,16 @@ export default function Home() {
             <div className="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
               <div>
                 <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-6">
-                  <CircuitBrainIcon color="#0052FF" className="w-7 h-7" />
+                  <CircuitBrainIcon color="#007BFF" className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#0052FF] transition-colors">
+                <h3 className="text-lg font-bold text-[#001738] mb-2 group-hover:text-[#007BFF] transition-colors">
                   Software Development
                 </h3>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
                   Custom web, mobile and enterprise solutions.
                 </p>
               </div>
-              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#0052FF] hover:text-blue-700 transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#007BFF] hover:text-blue-700 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -209,14 +204,14 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mb-6">
                   <CircuitBrainIcon color="#A855F7" className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#0052FF] transition-colors">
+                <h3 className="text-lg font-bold text-[#001738] mb-2 group-hover:text-[#007BFF] transition-colors">
                   AI & Automation
                 </h3>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
                   Intelligent solutions to work smarter and faster.
                 </p>
               </div>
-              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#0052FF] hover:text-blue-700 transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#007BFF] hover:text-blue-700 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -226,14 +221,14 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-cyan-50 flex items-center justify-center mb-6">
                   <Cloud className="w-7 h-7 text-[#06B6D4]" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#0052FF] transition-colors">
+                <h3 className="text-lg font-bold text-[#001738] mb-2 group-hover:text-[#007BFF] transition-colors">
                   Cloud Solutions
                 </h3>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
                   Modernize and scale your business on cloud.
                 </p>
               </div>
-              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#0052FF] hover:text-blue-700 transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#007BFF] hover:text-blue-700 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -243,14 +238,14 @@ export default function Home() {
                 <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-6">
                   <Shield className="w-7 h-7 text-[#10B981]" />
                 </div>
-                <h3 className="text-lg font-bold text-[#0F172A] mb-2 group-hover:text-[#0052FF] transition-colors">
+                <h3 className="text-lg font-bold text-[#001738] mb-2 group-hover:text-[#007BFF] transition-colors">
                   Cybersecurity
                 </h3>
                 <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
                   Protect your business with advanced security solutions.
                 </p>
               </div>
-              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#0052FF] hover:text-blue-700 transition-colors">
+              <Link to="/services" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#007BFF] hover:text-blue-700 transition-colors">
                 Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -271,8 +266,8 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 bg-slate-900/15 group-hover:bg-slate-900/25 transition-colors" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white text-[#0052FF] shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
-                    <svg className="w-7 h-7 fill-[#0052FF] ml-1" viewBox="0 0 24 24">
+                  <div className="w-16 h-16 rounded-full bg-white text-[#007BFF] shadow-2xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform">
+                    <svg className="w-7 h-7 fill-[#007BFF] ml-1" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
@@ -281,8 +276,8 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0052FF]">WHY PAVOSOFT</span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0F172A] tracking-tight">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#007BFF]">WHY PAVOSOFT</span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#001738] tracking-tight">
                 Your Growth is Our Mission
               </h2>
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -307,9 +302,9 @@ export default function Home() {
               <div className="pt-3">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 bg-[#0052FF] hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm shadow-md shadow-blue-500/20"
+                  className="inline-flex items-center gap-2 bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-6 py-3 rounded-lg transition-colors text-sm shadow-md shadow-blue-500/20"
                 >
-                  Learn More About Us 
+                  Learn More About Us →
                 </Link>
               </div>
             </div>
@@ -321,16 +316,16 @@ export default function Home() {
       <section id="industries" className="py-20 bg-slate-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto mb-14 space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0F172A]">Industries We Serve</h2>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001738]">Industries We Serve</h2>
             <p className="text-slate-600 text-sm">Delivering tailored solutions across diverse industries.</p>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
             {[
-              { name: "Manufacturing", icon: <FactoryIcon />, boxBg: "bg-blue-50 text-[#0052FF]" },
+              { name: "Manufacturing", icon: <FactoryIcon />, boxBg: "bg-blue-50 text-[#007BFF]" },
               { name: "Healthcare", icon: <HealthcareIcon />, boxBg: "bg-cyan-50 text-[#06B6D4]" },
               { name: "Retail & E-commerce", icon: <RetailIcon />, boxBg: "bg-emerald-50 text-[#10B981]" },
-              { name: "Finance", icon: <FinanceIcon />, boxBg: "bg-blue-50 text-[#0052FF]" },
+              { name: "Finance", icon: <FinanceIcon />, boxBg: "bg-blue-50 text-[#007BFF]" },
               { name: "Education", icon: <EducationIcon />, boxBg: "bg-purple-50 text-[#8B5CF6]" },
               { name: "Logistics", icon: <LogisticsIcon />, boxBg: "bg-pink-50 text-[#EC4899]" }
             ].map((ind, idx) => (
@@ -354,9 +349,9 @@ export default function Home() {
           </div>
           <Link
             to="/contact"
-            className="bg-[#0052FF] hover:bg-blue-600 text-white font-semibold px-7 py-3 rounded-lg shadow-lg border border-blue-400/30 transition-all hover:scale-105 shrink-0 z-10 flex items-center gap-2 text-sm"
+            className="bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-7 py-3 rounded-lg shadow-lg border border-blue-400/30 transition-all hover:scale-105 shrink-0 z-10 flex items-center gap-2 text-sm"
           >
-            Get Started
+            Get Started →
           </Link>
         </div>
       </section>
@@ -368,15 +363,15 @@ export default function Home() {
             Trusted by Growing Businesses
           </p>
           <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14">
-            <div className="flex items-center gap-1.5 text-[#0052FF]">
-              <svg className="h-6 w-auto" viewBox="0 0 100 65" fill="#0052FF">
-                <ellipse cx="50" cy="32" rx="46" ry="30" fill="none" stroke="#0052FF" strokeWidth="6" />
-                <path d="M30 18 h40 v8 h-16 v26 h-8 v-26 h-16 z" fill="#0052FF" />
+            <div className="flex items-center gap-1.5 text-[#007BFF]">
+              <svg className="h-6 w-auto" viewBox="0 0 100 65" fill="#007BFF">
+                <ellipse cx="50" cy="32" rx="46" ry="30" fill="none" stroke="#007BFF" strokeWidth="6" />
+                <path d="M30 18 h40 v8 h-16 v26 h-8 v-26 h-16 z" fill="#007BFF" />
               </svg>
-              <span className="text-lg font-bold tracking-widest text-[#0052FF]">TATA</span>
+              <span className="text-lg font-bold tracking-widest text-[#007BFF]">TATA</span>
             </div>
             <span className="text-2xl font-bold tracking-tight text-[#0070AD] font-sans">Infosys</span>
-            <span className="text-2xl font-black italic tracking-wider text-[#0052FF]">HCL</span>
+            <span className="text-2xl font-black italic tracking-wider text-[#007BFF]">HCL</span>
             <div className="flex items-center gap-1.5">
               <svg className="w-6 h-6" viewBox="0 0 40 40">
                 <circle cx="20" cy="8" r="3" fill="#E11D48" />
@@ -390,7 +385,7 @@ export default function Home() {
               </svg>
               <span className="text-2xl font-bold tracking-tight text-slate-800">wipro</span>
             </div>
-            <span className="text-2xl font-black tracking-widest text-[#0052FF] font-serif" style={{ letterSpacing: '0.15em' }}>
+            <span className="text-2xl font-black tracking-widest text-[#007BFF] font-serif" style={{ letterSpacing: '0.15em' }}>
               IBM
             </span>
             <div className="flex items-center gap-2">
