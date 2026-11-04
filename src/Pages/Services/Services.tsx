@@ -24,76 +24,59 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans pb-20">
       {/* 1. Hero Section with Engineer & Floating Badges (Services.png / WhatsApp images) */}
-      <section className="relative overflow-hidden pt-8 pb-14 lg:pt-12 lg:pb-20">
-        <div className="absolute top-0 right-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-          <svg viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 right-0 w-3/4 sm:w-2/3 h-full object-cover opacity-60">
-            <path d="M450 0 C700 100 800 350 550 800 L1200 800 L1200 0 Z" fill="url(#servicesCyanGlow)" />
-            <defs>
-              <linearGradient id="servicesCyanGlow" x1="450" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#E0F7FE" />
-                <stop offset="0.5" stopColor="#BAE6FD" />
-                <stop offset="1" stopColor="#60A5FA" />
-              </linearGradient>
-            </defs>
-          </svg>
+      <section className="relative overflow-hidden py-6 lg:py-10">
+       <div className="w-full max-w-7xl mx-auto">
+  <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
+
+    {/* Full Width Background Image */}
+    <img
+      src={SERVICE_HERO_IMG}
+      alt="PavoSoft technology solutions"
+      className="absolute inset-0 w-full h-full object-cover"
+      onError={(e) => {
+        (e.target as HTMLImageElement).src = require('../../assets/Service.jpg');
+      }}
+    />
+
+    {/* Image Overlay */}
+    {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
+
+    {/* Content Above Image */}
+    <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
+      <div className="max-w-2xl space-y-6">
+
+        <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+          OUR SERVICES
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Header Info */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#007BFF]">
-                OUR SERVICES
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.15]">
-                Comprehensive <br />
-                Technology <span className="text-[#007BFF]">Solutions</span>
-              </h1>
-              <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
-                We deliver end-to-end IT solutions that help businesses innovate, automate and scale with confidence.
-              </p>
-            </div>
+        <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+          Comprehensive <br />
+          Technology <br />
+          <span className="text-[#007BFF]">Solutions.</span>
+        </h1>
 
-            {/* Right Engineer Photo with 4 Floating Badges from WhatsApp images */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-slate-900 aspect-[4/3] sm:aspect-[1.15]">
-                  <img 
-                    src={SERVICE_HERO_IMG}
-                    alt="Engineer working on solutions" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = require('../../assets/Service.jpg');
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
+        <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
+          We deliver end-to-end IT solutions that help businesses innovate, automate and scale with confidence.
+        </p>
 
-                  {/* Floating Badge 1: AI (Square blue badge, top left) */}
-                  <div className="absolute top-6 left-6 bg-[#007BFF] text-white px-3.5 py-2 rounded-xl shadow-xl font-bold text-sm flex items-center justify-center">
-                    AI
-                  </div>
+      </div>
+    </div>
 
-                  {/* Floating Badge 2: Cloud (White rounded pill, top right) */}
-                  <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xl border border-white/90 flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                    <Cloud className="w-4 h-4 text-[#06B6D4]" />
-                    <span>Cloud</span>
-                  </div>
+    {/* Floating Badge */}
+    <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
+      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white">
+        Innovate
+      </div>
 
-                  {/* Floating Badge 3: </> (White card, bottom left) */}
-                  <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-xl shadow-xl text-[#007BFF] font-mono font-bold text-base border border-white/90">
-                    &lt;/&gt;
-                  </div>
+      <div className="font-bold text-slate-900 leading-tight">
+        <div className="text-xs">Innovate</div>
+        <div className="text-xs">Automate</div>
+        <div className="text-xs text-[#007BFF]">Scale</div>
+      </div>
+    </div>
 
-                  {/* Floating Badge 4: Security (White rounded pill, bottom right) */}
-                  <div className="absolute bottom-6 right-6 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-xl border border-white/90 flex items-center gap-1.5 text-xs font-bold text-slate-800">
-                    <Shield className="w-4 h-4 text-[#007BFF]" />
-                    <span>Security</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+  </div>
+</div>
       </section>
 
       {/* 2. Category Filter Tabs */}
@@ -115,7 +98,7 @@ export default function Services() {
         </div>
 
         {/* 3. 2x2 Detailed Service Cards from Services.png */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div id="solutions" className="grid scroll-mt-28 grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {/* Card 1: Software Development */}
           {(activeTab === 'All Services' || activeTab === 'Development') && (
             <div className="bg-white rounded-3xl p-8 border border-slate-200/90 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">

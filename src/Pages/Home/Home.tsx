@@ -75,12 +75,12 @@ export default function Home() {
         </div>
 
         <div className="w-full max-w-7xl mx-auto">
-          <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
+          <div className="relative overflow-hidden min-h-[350px] lg:min-h-[400px]">
             {/* Full Width Background Image */}
             <img
               src={HOME_HERO_IMG}
               alt="PavoSoft Corporate Building"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-half object-cover"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = require('../../assets/Home.jpg');
               }}

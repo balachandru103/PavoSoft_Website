@@ -35,47 +35,59 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans pb-20">
       {/* 1. Hero Section (Contact.png / WhatsApp images) */}
-      <section className="relative overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#007BFF]">
-                CONTACT US
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.15]">
-                Let's Start a <br />
-                <span className="text-[#007BFF]">Conversation</span>
-              </h1>
-              <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
-                Have a project in mind or want to know more about our services? We're here to help.
-              </p>
-            </div>
+      <section className="relative overflow-hidden py-8 lg:py-12">
+        <div className="w-full max-w-7xl mx-auto">
+  <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
 
-            {/* Right Graphic: Customer Support Agent from WhatsApp images */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 aspect-[4/3] sm:aspect-[1.15] bg-slate-900">
-                  <img 
-                    src={CONTACT_HERO_IMG}
-                    alt="Customer Support Representative" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = require('../../assets/contact.jpg');
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/20 via-transparent to-transparent pointer-events-none" />
+    {/* Full Width Background Image */}
+    <img
+      src={CONTACT_HERO_IMG}
+      alt="Customer Support Representative"
+      className="absolute inset-0 w-full h-full object-cover"
+      onError={(e) => {
+        (e.target as HTMLImageElement).src = require('../../assets/contact.jpg');
+      }}
+    />
 
-                  {/* Floating Pill Badge: We usually respond within 24 hours */}
-                  <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full shadow-xl border border-white/90 flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                    <span className="text-xs font-bold text-slate-800">We usually respond within 24 hours</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Image Overlay */}
+    {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
+
+    {/* Content Above Image */}
+    <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
+      <div className="max-w-2xl space-y-6">
+
+        <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+          CONTACT US
         </div>
+
+        <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+          Let's Start a <br />
+          <span className="text-[#007BFF]">Conversation.</span>
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
+          Have a project in mind or want to know more about our services? We're here to help.
+        </p>
+
+      </div>
+    </div>
+
+    {/* Floating Response Time Badge */}
+    <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
+
+      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center">
+        <span className="w-2.5 h-2.5 rounded-full bg-white animate-pulse"></span>
+      </div>
+
+      <div className="font-bold text-slate-900 leading-tight">
+        <div className="text-xs">We usually respond</div>
+        <div className="text-xs text-[#007BFF]">within 24 hours</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
       </section>
 
       {/* 2. Two-Column Contact Section: Send Us a Message + Our Office (Contact.png) */}

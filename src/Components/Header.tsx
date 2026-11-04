@@ -13,7 +13,7 @@ export default function Header() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services' },
-    { name: 'Solutions', path: '/services' },
+    { name: 'Solutions', path: '/solutions#solutions' },
     { name: 'Industries', path: '/#industries' },
     { name: 'About', path: '/about' },
     { name: 'Contact', path: '/contact' },
@@ -21,7 +21,7 @@ export default function Header() {
 
   const isCurrentActive = (path: string, name: string) => {
     if (path === '/' && location.pathname === '/') return true;
-    if (name === 'Solutions') return false;
+    if (name === 'Solutions') return location.pathname === '/solutions';
     if (path === '/#industries') return location.hash === '#industries';
     if (path !== '/' && location.pathname.startsWith(path)) return true;
     return false;

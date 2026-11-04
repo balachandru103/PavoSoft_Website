@@ -13,40 +13,60 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans pb-20">
       {/* 1. Hero Section (About.png / WhatsApp images) */}
-      <section className="relative overflow-hidden pt-8 pb-12 lg:pt-12 lg:pb-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#007BFF]">
-                ABOUT PAVOSOFT
-              </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.15]">
-                Building a Smarter <br />
-                and <span className="text-[#007BFF]">Brighter Tomorrow</span>
-              </h1>
-              <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
-                PavoSoft is a technology solutions company focused on helping businesses innovate, transform and grow through the power of software, AI and cloud.
-              </p>
-            </div>
+      <section className="relative overflow-hidden py-8 lg:py-12">
+        <div className="w-full max-w-7xl mx-auto">
+  <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
 
-            {/* Right Graphic: Office Team under PavoSoft wall sign from WhatsApp images */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 aspect-[4/3] sm:aspect-[1.15] bg-slate-100">
-                  <img 
-                    src={ABOUT_HERO_IMG}
-                    alt="Colleagues working together in a bright office under PavoSoft sign"
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = require('../../assets/About.jpg');
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+    {/* Full Width Background Image */}
+    <img
+      src={ABOUT_HERO_IMG}
+      alt="Colleagues working together in a bright office under the PavoSoft sign"
+      className="absolute inset-0 w-full h-full object-cover"
+      onError={(e) => {
+        (e.target as HTMLImageElement).src = require('../../assets/About.jpg');
+      }}
+    />
+
+    {/* Image Overlay */}
+    {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
+
+    {/* Content Above Image */}
+    <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
+      <div className="max-w-2xl space-y-6">
+
+        <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+          ABOUT PAVOSOFT
         </div>
+
+        <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+          Building a Smarter <br />
+          and <span className="text-[#007BFF]">Brighter Tomorrow.</span>
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
+          PavoSoft is a technology solutions company focused on helping businesses innovate, transform and grow through the power of software, AI and cloud.
+        </p>
+
+      </div>
+    </div>
+
+    {/* Floating Badge */}
+    <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
+
+      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white">
+        <span className="text-lg font-bold">P</span>
+      </div>
+
+      <div className="font-bold text-slate-900 leading-tight">
+        <div className="text-xs">Innovate</div>
+        <div className="text-xs">Transform</div>
+        <div className="text-xs text-[#007BFF]">Grow</div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
       </section>
 
       {/* 2. Stats Row directly under Hero (About.png) */}
