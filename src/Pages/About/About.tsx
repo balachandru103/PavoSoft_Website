@@ -167,7 +167,7 @@ export default function About() {
         {/* 6. Let's Build a Better Future Together Banner (About.png with Cleaned_office_image__4__ae5fd837.jpg) */}
         <div className="relative rounded-3xl overflow-hidden p-8 sm:p-14 text-white text-center shadow-2xl bg-slate-950">
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-95"
+            className="absolute inset-0  bg-center bg-no-repeat opacity-95"
             style={{ backgroundImage: `url(${ABOUT_FUTURE_BANNER_IMG})` }}
           />
           {/* Subtle gradient overlay to ensure text contrast */}

@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check, Cloud, Shield } from 'lucide-react';
 import { CircuitBrainIcon } from '../../Components/Icons';
 
-const HOME_HERO_IMG = process.env.PUBLIC_URL 
-  ? `${process.env.PUBLIC_URL}/assets/aistudio/HomeNew_ca6338f7.jpg` 
+const HOME_HERO_IMG = process.env.PUBLIC_URL
+  ? `${process.env.PUBLIC_URL}/assets/aistudio/HomeNew_ca6338f7.jpg`
   : '/assets/aistudio/HomeNew_ca6338f7.jpg';
 
 const FactoryIcon = () => (
@@ -74,72 +74,70 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
-                TECHNOLOGY • PEOPLE • REAL BUSINESS IMPACT
-              </div>
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
+            {/* Full Width Background Image */}
+            <img
+              src={HOME_HERO_IMG}
+              alt="PavoSoft Corporate Building"
+              className="absolute inset-0 w-full h-full object-cover"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = require('../../assets/Home.jpg');
+              }}
+            />
 
-              <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
-                Technology <br />
-                that moves your <br />
-                <span className="text-[#007BFF]">business forward.</span>
-              </h1>
+            {/* Image Overlay */}
+            {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
 
-              <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
-                We build intelligent software, AI solutions and cloud platforms that help businesses operate faster, smarter and more efficiently.
-              </p>
+            {/* Content Above Image */}
+            <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
+              <div className="max-w-2xl space-y-6">
 
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  to="/contact"
-                  className="bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-6 py-3 rounded-lg shadow-sm shadow-blue-500/20 transition-all text-sm flex items-center gap-2"
-                >
-                  Get Started →
-                </Link>
-                <Link
-                  to="/services"
-                  className="bg-white hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3 rounded-lg border border-slate-200 transition-all text-sm shadow-xs"
-                >
-                  Explore Services
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Graphic: HomeNew_ca6338f7.jpg from WhatsApp image set */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-lg">
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-slate-100 aspect-[4/3] sm:aspect-[1.15]">
-                  <img 
-                    src={HOME_HERO_IMG}
-                    alt="PavoSoft Corporate Building" 
-                    className="w-full h-full object-cover"
-                    onError={(e) => {
-                      // Fallback to bundled asset if path fails
-                      (e.target as HTMLImageElement).src = require('../../assets/Home.jpg');
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 via-transparent to-blue-500/10 pointer-events-none" />
-
-                  {/* Floating Badge: Innovate Automate Scale */}
-                  <div className="absolute bottom-5 right-5 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white shadow-md shadow-blue-500/30">
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 2L3 9v11a2 2 0 002 2h14a2 2 0 002-2V9l-9-7z" />
-                        <path d="M9 22V12h6v10" />
-                      </svg>
-                    </div>
-                    <div className="text-left font-bold text-slate-900 leading-tight">
-                      <div className="text-xs font-extrabold tracking-tight">Innovate</div>
-                      <div className="text-xs font-extrabold tracking-tight">Automate</div>
-                      <div className="text-xs font-extrabold tracking-tight text-[#007BFF]">Scale</div>
-                    </div>
-                  </div>
+                <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+                  TECHNOLOGY • PEOPLE • REAL BUSINESS IMPACT
                 </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+                  Technology <br />
+                  that moves your <br />
+                  <span className="text-[#007BFF]">business forward.</span>
+                </h1>
+
+                <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
+                  We build intelligent software, AI solutions and cloud platforms that help businesses operate faster, smarter and more efficiently.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <Link
+                    to="/contact"
+                    className="bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-6 py-3 rounded-lg shadow-sm shadow-blue-500/20 transition-all text-sm"
+                  >
+                    Get Started →
+                  </Link>
+
+                  <Link
+                    to="/services"
+                    className="bg-white hover:bg-slate-50 text-slate-800 font-semibold px-6 py-3 rounded-lg border border-slate-200 transition-all text-sm"
+                  >
+                    Explore Services
+                  </Link>
+                </div>
+
               </div>
             </div>
+
+            {/* Floating Badge */}
+            <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white">
+                Innovate
+              </div>
+              <div className="font-bold text-slate-900 leading-tight">
+                <div className="text-xs">Innovate</div>
+                <div className="text-xs">Automate</div>
+                <div className="text-xs text-[#007BFF]">Scale</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
