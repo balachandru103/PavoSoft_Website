@@ -22,61 +22,57 @@ export default function Services() {
   const [activeTab, setActiveTab] = useState('All Services');
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans pb-20">
-      {/* 1. Hero Section with Engineer & Floating Badges (Services.png / WhatsApp images) */}
-      <section className="relative overflow-hidden py-6 lg:py-10">
-       <div className="w-full max-w-7xl mx-auto">
-  <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
+    <div className="min-h-screen bg-white text-slate-900 font-sans pb-14">
+      {/* 1. Hero Section — engineer with floating service badges */}
+      <section className="relative py-6 lg:py-8">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="relative overflow-hidden flex items-center min-h-[420px] lg:min-h-[500px]">
+            {/* Full Width Background Image (subject sits on the right) */}
+            <img
+              src={SERVICE_HERO_IMG}
+              alt="Engineer working on a laptop"
+              className="absolute inset-0 w-full h-full object-cover object-right"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = require('../../assets/Service.jpg');
+              }}
+            />
 
-    {/* Full Width Background Image */}
-    <img
-      src={SERVICE_HERO_IMG}
-      alt="PavoSoft technology solutions"
-      className="absolute inset-0 w-full h-full object-cover"
-      onError={(e) => {
-        (e.target as HTMLImageElement).src = require('../../assets/Service.jpg');
-      }}
-    />
+            {/* Mobile fade so text stays readable over the cropped image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/30 lg:hidden" />
 
-    {/* Image Overlay */}
-    {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
+            {/* Content Above Image */}
+            <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-12 lg:py-14">
+              <div className="max-w-xl lg:max-w-[48%] space-y-5">
+                <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+                  OUR SERVICES
+                </div>
 
-    {/* Content Above Image */}
-    <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
-      <div className="max-w-2xl space-y-6">
+                <h1 className="text-4xl sm:text-5xl xl:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+                  Comprehensive <br />
+                  Technology <span className="text-[#007BFF]">Solutions.</span>
+                </h1>
 
-        <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
-          OUR SERVICES
+                <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
+                  We deliver end-to-end IT solutions that help businesses innovate, automate and scale with confidence.
+                </p>
+              </div>
+            </div>
+
+            {/* Floating Service Badges */}
+            <div className="hidden lg:flex absolute top-[18%] left-[54%] z-20 w-11 h-11 rounded-xl bg-[#007BFF] text-white font-bold text-sm items-center justify-center shadow-lg">
+              AI
+            </div>
+            <div className="hidden lg:flex absolute top-[46%] left-[50%] z-20 w-11 h-11 rounded-xl bg-white text-[#007BFF] items-center justify-center shadow-lg border border-slate-100">
+              <CodeTagIcon className="w-5 h-5" />
+            </div>
+            <div className="hidden lg:flex absolute top-[36%] right-6 z-20 bg-white px-3 py-2 rounded-xl shadow-lg border border-slate-100 items-center gap-2 text-xs font-bold text-slate-800">
+              <Cloud className="w-4 h-4 text-[#007BFF]" /> Cloud
+            </div>
+            <div className="hidden lg:flex absolute top-[56%] right-6 z-20 bg-white px-3 py-2 rounded-xl shadow-lg border border-slate-100 items-center gap-2 text-xs font-bold text-slate-800">
+              <Shield className="w-4 h-4 text-[#007BFF]" /> Security
+            </div>
+          </div>
         </div>
-
-        <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
-          Comprehensive <br />
-          Technology <br />
-          <span className="text-[#007BFF]">Solutions.</span>
-        </h1>
-
-        <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
-          We deliver end-to-end IT solutions that help businesses innovate, automate and scale with confidence.
-        </p>
-
-      </div>
-    </div>
-
-    {/* Floating Badge */}
-    <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
-      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white">
-        Innovate
-      </div>
-
-      <div className="font-bold text-slate-900 leading-tight">
-        <div className="text-xs">Innovate</div>
-        <div className="text-xs">Automate</div>
-        <div className="text-xs text-[#007BFF]">Scale</div>
-      </div>
-    </div>
-
-  </div>
-</div>
       </section>
 
       {/* 2. Category Filter Tabs */}
@@ -265,7 +261,7 @@ export default function Services() {
         </div>
 
         {/* 4. Our Development Process from Services.png */}
-        <div className="mt-20">
+        <div className="mt-14 lg:mt-16">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001738]">Our Development Process</h2>
             <p className="text-slate-600 text-xs sm:text-sm">A proven approach to deliver high-quality solutions.</p>

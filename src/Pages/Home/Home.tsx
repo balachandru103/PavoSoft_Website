@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Cloud, Shield } from 'lucide-react';
+import { ArrowRight, ArrowUp, Check, Cloud, Shield } from 'lucide-react';
 import { CircuitBrainIcon } from '../../Components/Icons';
 
 const HOME_HERO_IMG = process.env.PUBLIC_URL
@@ -59,45 +59,31 @@ const LogisticsIcon = () => (
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans">
-      {/* 1. Hero Section with curved wave */}
-      <section className="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24">
-        <div className="absolute top-0 right-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-          <svg viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="absolute top-0 right-0 w-3/4 sm:w-2/3 h-full object-cover opacity-70">
-            <path d="M400 0 C650 120 780 380 500 800 L1200 800 L1200 0 Z" fill="url(#heroCyanGlowHome)" />
-            <defs>
-              <linearGradient id="heroCyanGlowHome" x1="400" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#E0F7FE" />
-                <stop offset="0.5" stopColor="#BAE6FD" />
-                <stop offset="1" stopColor="#60A5FA" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
+      {/* 1. Hero Section — Building image with curved wave */}
+      <section className="relative py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto">
-          <div className="relative overflow-hidden min-h-[350px] lg:min-h-[400px]">
-            {/* Full Width Background Image */}
+          <div className="relative overflow-hidden flex items-center min-h-[420px] lg:min-h-[500px]">
+            {/* Full Width Background Image (subject sits on the right) */}
             <img
               src={HOME_HERO_IMG}
               alt="PavoSoft Corporate Building"
-              className="absolute inset-0 w-full h-half object-cover"
+              className="absolute inset-0 w-full h-full object-cover object-right"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = require('../../assets/Home.jpg');
               }}
             />
 
-            {/* Image Overlay */}
-            {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
+            {/* Mobile fade so text stays readable over the cropped image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/30 lg:hidden" />
 
             {/* Content Above Image */}
-            <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
-              <div className="max-w-2xl space-y-6">
-
+            <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-12 lg:py-14">
+              <div className="max-w-xl lg:max-w-[48%] space-y-5">
                 <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
                   TECHNOLOGY • PEOPLE • REAL BUSINESS IMPACT
                 </div>
 
-                <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+                <h1 className="text-4xl sm:text-5xl xl:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
                   Technology <br />
                   that moves your <br />
                   <span className="text-[#007BFF]">business forward.</span>
@@ -110,9 +96,9 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <Link
                     to="/contact"
-                    className="bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-6 py-3 rounded-lg shadow-sm shadow-blue-500/20 transition-all text-sm"
+                    className="inline-flex items-center gap-2 bg-[#007BFF] hover:bg-[#0066FF] text-white font-semibold px-6 py-3 rounded-lg shadow-sm shadow-blue-500/20 transition-all text-sm"
                   >
-                    Get Started →
+                    Get Started <ArrowRight className="w-4 h-4" />
                   </Link>
 
                   <Link
@@ -122,14 +108,13 @@ export default function Home() {
                     Explore Services
                   </Link>
                 </div>
-
               </div>
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
+            <div className="hidden md:flex absolute bottom-6 right-6 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white">
-                Innovate
+                <ArrowUp className="w-5 h-5" />
               </div>
               <div className="font-bold text-slate-900 leading-tight">
                 <div className="text-xs">Innovate</div>
@@ -137,7 +122,6 @@ export default function Home() {
                 <div className="text-xs text-[#007BFF]">Scale</div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -167,7 +151,7 @@ export default function Home() {
       </section>
 
       {/* 3. Services Grid */}
-      <section className="py-20 bg-slate-50/70">
+      <section className="py-14 lg:py-16 bg-slate-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-14 space-y-2">
             <span className="text-xs font-bold uppercase tracking-wider text-[#007BFF]">OUR SERVICES</span>
@@ -252,7 +236,7 @@ export default function Home() {
       </section>
 
       {/* 4. Why PavoSoft */}
-      <section className="py-20 bg-white border-y border-slate-100">
+      <section className="py-14 lg:py-16 bg-white border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
@@ -311,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* 5. Industries We Serve */}
-      <section id="industries" className="py-20 bg-slate-50/70">
+      <section id="industries" className="py-14 lg:py-16 bg-slate-50/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto mb-14 space-y-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#001738]">Industries We Serve</h2>

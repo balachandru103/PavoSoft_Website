@@ -11,62 +11,43 @@ const ABOUT_FUTURE_BANNER_IMG = process.env.PUBLIC_URL
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans pb-20">
-      {/* 1. Hero Section (About.png / WhatsApp images) */}
-      <section className="relative overflow-hidden py-8 lg:py-12">
+    <div className="min-h-screen bg-white text-slate-900 font-sans pb-14">
+      {/* 1. Hero Section — team in the PavoSoft office */}
+      <section className="relative py-6 lg:py-8">
         <div className="w-full max-w-7xl mx-auto">
-  <div className="relative overflow-hidden min-h-[500px] lg:min-h-[500px]">
+          <div className="relative overflow-hidden flex items-center min-h-[420px] lg:min-h-[500px]">
+            {/* Full Width Background Image (subject sits on the right) */}
+            <img
+              src={ABOUT_HERO_IMG}
+              alt="Colleagues working together in a bright office under the PavoSoft sign"
+              className="absolute inset-0 w-full h-full object-cover object-right"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = require('../../assets/About.jpg');
+              }}
+            />
 
-    {/* Full Width Background Image */}
-    <img
-      src={ABOUT_HERO_IMG}
-      alt="Colleagues working together in a bright office under the PavoSoft sign"
-      className="absolute inset-0 w-full h-full object-cover"
-      onError={(e) => {
-        (e.target as HTMLImageElement).src = require('../../assets/About.jpg');
-      }}
-    />
+            {/* Mobile fade so text stays readable over the cropped image */}
+            <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/30 lg:hidden" />
 
-    {/* Image Overlay */}
-    {/* <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/20" /> */}
+            {/* Content Above Image */}
+            <div className="relative z-10 w-full px-6 sm:px-10 lg:px-16 py-12 lg:py-14">
+              <div className="max-w-xl lg:max-w-[48%] space-y-5">
+                <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
+                  ABOUT PAVOSOFT
+                </div>
 
-    {/* Content Above Image */}
-    <div className="relative z-10 flex items-center min-h-[550px] lg:min-h-[650px] px-6 sm:px-10 lg:px-16 py-16">
-      <div className="max-w-2xl space-y-6">
+                <h1 className="text-4xl sm:text-5xl xl:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
+                  Building a Smarter <br />
+                  and <span className="text-[#007BFF]">Brighter Tomorrow.</span>
+                </h1>
 
-        <div className="text-xs sm:text-sm font-bold tracking-wider text-[#007BFF] uppercase">
-          ABOUT PAVOSOFT
+                <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
+                  PavoSoft is a technology solutions company focused on helping businesses innovate, transform and grow through the power of software, AI and cloud.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#001738] leading-[1.12]">
-          Building a Smarter <br />
-          and <span className="text-[#007BFF]">Brighter Tomorrow.</span>
-        </h1>
-
-        <p className="text-slate-600 text-base sm:text-lg max-w-lg leading-relaxed">
-          PavoSoft is a technology solutions company focused on helping businesses innovate, transform and grow through the power of software, AI and cloud.
-        </p>
-
-      </div>
-    </div>
-
-    {/* Floating Badge */}
-    <div className="absolute bottom-5 right-5 z-20 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-xl border border-white/90 flex items-center gap-3">
-
-      <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#007BFF] to-[#00C2FF] flex items-center justify-center text-white">
-        <span className="text-lg font-bold">P</span>
-      </div>
-
-      <div className="font-bold text-slate-900 leading-tight">
-        <div className="text-xs">Innovate</div>
-        <div className="text-xs">Transform</div>
-        <div className="text-xs text-[#007BFF]">Grow</div>
-      </div>
-
-    </div>
-
-  </div>
-</div>
       </section>
 
       {/* 2. Stats Row directly under Hero (About.png) */}
@@ -93,7 +74,7 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
         {/* 3. Our Story (About.png) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-14 lg:mb-16">
           <div className="lg:col-span-6 space-y-5">
             <h2 className="text-3xl font-extrabold text-[#001738] tracking-tight">Our Story</h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -112,7 +93,7 @@ export default function About() {
         </div>
 
         {/* 4. Our Values (4 Cards in About.png) */}
-        <div className="mb-20">
+        <div className="mb-14 lg:mb-16">
           <h2 className="text-3xl font-extrabold text-[#001738] tracking-tight mb-8">Our Values</h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -158,7 +139,7 @@ export default function About() {
         </div>
 
         {/* 5. Our Team (About.png) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-14 lg:mb-16">
           <div className="lg:col-span-6 space-y-5">
             <h2 className="text-3xl font-extrabold text-[#001738] tracking-tight">Our Team</h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
